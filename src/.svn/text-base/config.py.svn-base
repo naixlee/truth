@@ -1,0 +1,47 @@
+
+'''
+Author: xianli@cs.binghamton.edu
+Function: This file would provide parameters for all the t-verifier process
+'''
+
+# Files used in the processor
+home = '../Data'
+dataset = home + '/' +'UIC'
+input_doubt_file = dataset + '/' + 'doubtful_statements.txt'
+
+alter_download = dataset + '/' + 'SourcePages'
+alter_extract = dataset + '/' + 'ExtractedPages'
+alter_feature = dataset + '/' + 'Feature/Individual'
+alter_units_result = dataset + '/' + 'Feature/alter_units.txt'
+
+verify_download = dataset + '/' + 'SourcePages_v'
+verify_extract = dataset + '/' + 'ExtractedPages_v'
+verify_feature = dataset + '/' + 'Feature_v'
+
+dictionary_path = dataset + '/' + 'Dict'
+hierarchy_file = dictionary_path + '/' + 'place_hierarchy.ch'
+global_corr_dir = dataset + '/' + 'GlobalCorrPages'
+nick_name_dict = dictionary_path + '/' + 'nickname.ch'
+
+raw_data_file = dictionary_path + '/' + 'uscities.txt'
+selected_raw_data_file = dictionary_path + '/' + 'selected_uscities.txt'
+
+'''
+Basic data structure in stmtgroup.stmt for voting in verification
+'''
+Alter_statement = 0
+Alter_unit = 1
+Prior_ranker = 2
+Hits_ranker = 3
+TFR_RC_ranker = 4    #TFR(RC)
+TFR_RQR_ranker = 5   #TFR(RQR)
+TFR_Rrank_ranker = 6      #TFR(Rrank)
+TFR_TD_ranker = 7   #TFR(TD)
+TFR_COMB_ranker = 8
+TFR_SIMQS_ranker = 8
+
+NumberOfRankers = 6
+NumberOfAlterStatement = 10
+
+extract_srr_limit = 200
+verify_srr_limit = 100
