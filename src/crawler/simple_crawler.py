@@ -36,6 +36,9 @@ class SimpleCrawler:
         if query_urls is None or len(query_urls) < 1:
             return
         seq = 0
+        if not os.path.exists(self.output_directory):
+                os.mkdir(self.output_directory)
+        err = codecs.open(self.output_directory + '/' + 'error', 'a', 'utf-8')
         for url in query_urls:
             print 'crawling ', url, 'starts...'
             r = requests.get(url)
@@ -43,7 +46,8 @@ class SimpleCrawler:
                 os.mkdir(self.output_directory + '/' + query + '/')
             f = codecs.open(self.output_directory + '/' + query + '/' + str(seq) + '.html', 'w', 'utf-8')
             seq = seq + 1
-            f.write(r.text)
+            f.write(r.text) if r.ok else err.write(query + '\n')
             f.close()
             print 'crawling ', url, 'finish...'
             time.sleep(time_interval_sec)
+        err.close()
