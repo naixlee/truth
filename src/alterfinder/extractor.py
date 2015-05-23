@@ -4,9 +4,9 @@ Created on May 22, 2015
 @author: xli1
 '''
 from bs4 import BeautifulSoup
-from settings import config
+from src.settings import config
 
-class SRRExtractor:
+class PageExtractor:
     def extract_title(self, record, rule):
         links = record.findAll('a')
         if len(links) == 0:
@@ -33,5 +33,5 @@ class SRRExtractor:
         return[]
 
 if __name__ == '__main__':
-    ex = SRRExtractor()
+    ex = PageExtractor()
     ex.extract_srr_from_page('/Users/xli1/project/eclipse_workspace/T-verifier/Data/testhome/alter_pages/Barack Obama is a /0.html', '')
