@@ -7,6 +7,7 @@ from crawler import simple_crawler
 from crawler import query_parser
 from argparse import ArgumentParser
 from settings import config
+from alterfinder import extractor
 
 def get_args():
     parser = ArgumentParser()
@@ -36,3 +37,5 @@ def collect_alterunit_pages(truth_home, input_doubt_file, search_engine):
 if __name__ == '__main__':
     truth_home, input_doubt_file, search_engine = get_args()
     queries = collect_alterunit_pages(truth_home, input_doubt_file, search_engine)
+    page_extractor = extractor.PageExtractor()
+    titles, snippets =
